@@ -6,7 +6,7 @@ import AddRecipe from "./components/AddRecipe";
 import ShowRecipe from "./components/ShowRecipe";
 import EditRecipe from "./components/EditRecipe";
 import User from "./components/User";
-import Header from "./components/Header";
+import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
 
@@ -16,7 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <>
-        <Header />
+        <Navigation />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/recipe/create" component={AddRecipe} />
