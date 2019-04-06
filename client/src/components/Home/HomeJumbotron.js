@@ -9,7 +9,7 @@ function HomeJumbotron() {
     <Jumbotron fluid className="home-jumbotron">
       <Container>
         <Row>
-          <Col xs vl="4" lg="5" md="7">
+          <Col xs lg="5" md="7">
             <div className="heading-card">
               <div className="heading-content">
                 <h1 className="heading-h1">
