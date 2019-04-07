@@ -12,10 +12,10 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link href="/recipe/create" className="nav-link">
-              Add New Recipe
+              <i class="fas fa-plus" /> Add New Recipe
             </Nav.Link>
             <Nav.Link href="/user/" className="nav-link">
-              My Account
+              <i class="fas fa-user" /> My Account
             </Nav.Link>
             <Button variant="dark">Log In</Button>
           </Nav>

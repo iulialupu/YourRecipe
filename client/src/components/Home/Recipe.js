@@ -1,9 +1,14 @@
 import React from "react";
-import StarRatingComponent from "react-star-rating-component";
+
+import HrDecoLine from "../HrDecoLine";
+import AboutRecipeInfo from "../AboutRecipeInfo";
+import Ingredients from "../Ingredients";
+import RecipeTitle from "../RecipeTitle";
+import StarsRating from "../StarsRating";
 
 function Recipe() {
   const recipe = {
-    name: "Cajun Chicken Pasta",
+    title: "Cajun Chicken Pasta",
     author: {
       id: 1,
       userName: "John Doe"
@@ -35,66 +40,24 @@ function Recipe() {
       "Add the cream, basil, lemon pepper, salt, garlic powder and ground black pepper. Heat through. Add the cooked linguine, toss and heat through. Sprinkle with grated Parmesan cheese and serve."
     ]
   };
-  const { name, rating, ingredients, author, createDate, updateDate } = recipe;
-  const [stars, setStars] = React.useState(rating);
-
-  const renderIngredients = () => {
-    return ingredients.map((ingredient, i) => (
-      <li key={i} className="ingredients-item">
-        {ingredient}
-      </li>
-    ));
-  };
+  const { title, rating, ingredients, author, createDate, updateDate } = recipe;
 
   return (
     <div className="recipe-card">
       <div className="recipe-content">
-        <h3 className="recipe-name">
-          <span className="name-line" />
-          <span className="name-text">{name}</span>
-          <span className="name-line" />
-        </h3>
+        <RecipeTitle title={title} />
 
-        <div className="star-rating">
-          <StarRatingComponent
-            name={"stars-rating"}
-            value={stars}
-            starCount={5}
-            //   onStarClick={} /* on icon click handler */
-            onStarHover={(nextValue, prevValue, name) => {
-              setStars(nextValue);
-            }}
-            onStarHoverOut={(nextValue, prevValue, name) => {
-              setStars(rating);
-            }}
-            starColor={"#ffb400"}
-            emptyStarColor={`#333`}
-          />
-        </div>
+        <StarsRating rating={rating} />
 
-        <div className="create-info">
-          <div>
-            <span className="label">Posted:</span>
-            {createDate}
-          </div>
+        <AboutRecipeInfo
+          createDate={createDate}
+          updateDate={updateDate}
+          author={author}
+        />
 
-          <div>
-            <span className="label">Edited:</span>
-            {updateDate}
-          </div>
+        <HrDecoLine />
 
-          <div>
-            <span className="label">By:</span>
-            {author.userName}
-          </div>
-        </div>
-
-        <div className="horizontal-line" />
-
-        <div className="ingredients">
-          <h4>Ingredients:</h4>
-          <ul className="ingredients-list">{renderIngredients()}</ul>
-        </div>
+        <Ingredients ingredients={ingredients} />
       </div>
     </div>
   );

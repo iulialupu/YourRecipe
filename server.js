@@ -38,7 +38,7 @@ app.get("/api/recipes", (req, res) => {
 app.post("/api/recipes", (req, res) => {
   console.log(req.body);
   const recipe = new Recipe({
-    name: req.body.name
+    title: req.body.title
   });
   recipe.save(function(err) {
     if (!err) {

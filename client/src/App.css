@@ -17,10 +17,12 @@ h4 {
 .nav-link {
   margin-right: 40px;
 }
-
+.nav-link i {
+  margin-right: 7px;
+}
 /* ******************* Footer ********************* */
 
-/* ******************* Home ********************* */
+/* ******************* Home Jumbotron ********************* */
 .home-jumbotron {
   height: 100vh;
   background-image: url(./img/home-bg.jpg);
@@ -74,7 +76,8 @@ h4 {
   box-shadow: var(--light-shadow), 0 2px 3px 1px #2c241b3a;
 }
 
-.recipe-name {
+/* ******************* Recipe Title ********************* */
+.recipe-title {
   text-align: center;
   font-family: "Prata", serif;
   font-size: 1;
@@ -92,11 +95,13 @@ h4 {
   padding: 0 30px;
 }
 
+/* ******************* Star Rating ********************* */
 .star-rating {
   text-align: center;
   margin-top: 15px;
 }
 
+/* ******************* Ingredients ********************* */
 .ingredients {
   margin-top: 10px;
 }
@@ -110,6 +115,7 @@ h4 {
   font-size: 0.9rem;
 }
 
+/* ******************* Horizontal Deco Line ********************* */
 .horizontal-line {
   background-image: url(./img/hr-line.svg);
   background-position: center;
@@ -120,6 +126,7 @@ h4 {
   opacity: 0.2;
 }
 
+/* ******************* About Recipe Info********************* */
 .create-info {
   margin-top: 10px;
   display: flex;
