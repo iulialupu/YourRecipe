@@ -54,6 +54,10 @@ function ShowRecipe() {
     instructions
   } = recipe;
 
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="show-recipe-container">
       <Container>

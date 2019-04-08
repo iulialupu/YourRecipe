@@ -7,11 +7,15 @@ body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.3;
   font-size: 0.9rem;
+  background-color: #f8f9fa;
 }
 h4 {
   margin-bottom: 10px;
   font-size: 1.1rem;
   font-weight: bold;
+}
+a:hover {
+  text-decoration: none;
 }
 
 /* ******************* Navigation ********************* */
@@ -114,7 +118,7 @@ footer {
 
 /* ******************* Recipes List ********************* */
 .recipes-list {
-  padding: 120px 0;
+  padding: 80px 0 120px;
   background-color: #f8f9fa;
 }
 
@@ -136,6 +140,7 @@ footer {
   justify-content: center;
   align-items: center;
 }
+
 .name-line {
   background-color: var(--dark);
   display: block;
@@ -144,6 +149,11 @@ footer {
 }
 .name-text {
   padding: 0 30px;
+  transition: color 0.1s ease;
+  color: var(--dark);
+}
+.recipe-title:hover .name-text {
+  color: rgb(92, 92, 92);
 }
 
 /* ******************* Star Rating ********************* */

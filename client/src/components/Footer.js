@@ -10,7 +10,7 @@ function Footer() {
       <nav
         bg="dark"
         variant="dark"
-        className="d-flex flex-column align-items-center justify-content-between"
+        className="d-flex flex-column align-items-center"
       >
         <a className="footer-logo " href="/">
           <img className="footer-logo" src={logo} alt="Your Recipe Logo" />
@@ -32,27 +32,27 @@ function Footer() {
 
         <ul className="socials">
           <li className="socials-link">
-            <a href="https://twitter.com" target="_blank">
+            <a href="https://twitter.com">
               <i class="fab fa-twitter" />
             </a>
           </li>
           <li className="socials-link">
-            <a href="https://facebook.com" target="_blank">
+            <a href="https://facebook.com">
               <i class="fab fa-facebook" />
             </a>
           </li>
           <li className="socials-link">
-            <a href="https://instagram.com" target="_blank">
+            <a href="https://instagram.com">
               <i class="fab fa-instagram" />
             </a>
           </li>
           <li className="socials-link">
-            <a href="https://pinterest.com" target="_blank">
+            <a href="https://pinterest.com">
               <i class="fab fa-pinterest" />
             </a>
           </li>
           <li className="socials-link">
-            <a href="https://youtube.com" target="_blank">
+            <a href="https://youtube.com">
               <i class="fab fa-youtube" />
             </a>
           </li>

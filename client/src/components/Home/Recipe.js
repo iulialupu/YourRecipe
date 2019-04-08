@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import HrDecoLine from "../HrDecoLine";
 import AboutRecipeInfo from "../AboutRecipeInfo";
@@ -8,6 +9,7 @@ import StarsRating from "../StarsRating";
 
 function Recipe() {
   const recipe = {
+    id: 1,
     title: "Cajun Chicken Pasta",
     author: {
       id: 1,
@@ -40,12 +42,22 @@ function Recipe() {
       "Add the cream, basil, lemon pepper, salt, garlic powder and ground black pepper. Heat through. Add the cooked linguine, toss and heat through. Sprinkle with grated Parmesan cheese and serve."
     ]
   };
-  const { title, rating, ingredients, author, createDate, updateDate } = recipe;
+  const {
+    id,
+    title,
+    rating,
+    ingredients,
+    author,
+    createDate,
+    updateDate
+  } = recipe;
 
   return (
     <div className="recipe-card">
       <div className="recipe-content">
-        <RecipeTitle title={title} />
+        <Link to={`/recipe/${id}`}>
+          <RecipeTitle title={title} />
+        </Link>
 
         <StarsRating rating={rating} />
 
