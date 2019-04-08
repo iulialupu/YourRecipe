@@ -15,6 +15,9 @@ h4 {
 }
 
 /* ******************* Navigation ********************* */
+.nav-logo {
+  height: 2rem;
+}
 .nav-link {
   margin-right: 40px;
 }
@@ -24,6 +27,46 @@ h4 {
 /* ******************* Footer ********************* */
 footer {
   background-color: var(--dark);
+  padding: 3rem 1rem 2.2rem;
+}
+
+.footer-logo {
+  height: 2.2rem;
+}
+
+.copy {
+  color: grey;
+  font-size: 0.7rem;
+}
+.footer-menu {
+  margin-top: 1.4rem;
+}
+.footer-link {
+  color: grey;
+  margin: 1rem;
+  font-size: 0.8rem;
+}
+.footer-link:hover {
+  color: lightgrey;
+  text-decoration: none;
+}
+
+.socials {
+  list-style-type: none;
+  margin-top: 0.8rem;
+  margin-bottom: 0;
+  padding: 0;
+}
+.socials-link {
+  margin: 0.8rem;
+  display: inline-block;
+}
+.socials-link a {
+  color: grey;
+  font-size: 1.5rem;
+}
+.socials-link a:hover {
+  color: lightgray;
 }
 
 /* ******************* Home Jumbotron ********************* */
@@ -152,7 +195,7 @@ footer {
   background-position: top;
   background-size: cover;
   padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 5rem;
 }
 .show-recipe {
   background-image: url(./img/Grunge-Paper-Texture-1.jpg);

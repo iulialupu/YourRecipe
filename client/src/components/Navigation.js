@@ -3,11 +3,15 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 
+import logo from "../img/logo-dark.svg";
+
 function Header() {
   return (
     <header>
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="/">YourRecipe</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <img className="nav-logo" src={logo} alt="Your Recipe Logo" />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
