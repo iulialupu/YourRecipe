@@ -18,14 +18,14 @@ const RecipeSchema = new mongoose.Schema({
     type: Array,
     required: false
   },
-  //   ingredients: {
-  //     type: Array,
-  //     required: true
-  //   },
-  //   steps: {
-  //     type: Array,
-  //     required: true
-  //   },
+  ingredients: {
+    type: Array,
+    required: true
+  },
+  instructions: {
+    type: Array,
+    required: true
+  },
   comments: []
 });
 

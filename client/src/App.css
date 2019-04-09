@@ -118,7 +118,7 @@ footer {
 
 /* ******************* Recipes List ********************* */
 .recipes-list {
-  padding: 80px 0 120px;
+  padding: 60px 0 100px;
   background-color: #f8f9fa;
 }
 
@@ -129,6 +129,7 @@ footer {
   background-size: cover;
   padding: 30px 44px;
   box-shadow: var(--light-shadow), 0 2px 3px 1px #2c241b3a;
+  margin-bottom: 30px;
 }
 
 /* ******************* Recipe Title ********************* */
@@ -152,7 +153,7 @@ footer {
   transition: color 0.1s ease;
   color: var(--dark);
 }
-.recipe-title:hover .name-text {
+a:hover .recipe-title .name-text {
   color: rgb(92, 92, 92);
 }
 

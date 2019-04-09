@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
 
 import logo from "../img/logo-light.svg";
 
@@ -33,27 +31,27 @@ function Footer() {
         <ul className="socials">
           <li className="socials-link">
             <a href="https://twitter.com">
-              <i class="fab fa-twitter" />
+              <i className="fab fa-twitter" />
             </a>
           </li>
           <li className="socials-link">
             <a href="https://facebook.com">
-              <i class="fab fa-facebook" />
+              <i className="fab fa-facebook" />
             </a>
           </li>
           <li className="socials-link">
             <a href="https://instagram.com">
-              <i class="fab fa-instagram" />
+              <i className="fab fa-instagram" />
             </a>
           </li>
           <li className="socials-link">
             <a href="https://pinterest.com">
-              <i class="fab fa-pinterest" />
+              <i className="fab fa-pinterest" />
             </a>
           </li>
           <li className="socials-link">
             <a href="https://youtube.com">
-              <i class="fab fa-youtube" />
+              <i className="fab fa-youtube" />
             </a>
           </li>
         </ul>
