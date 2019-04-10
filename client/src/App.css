@@ -244,9 +244,46 @@ a:hover .recipe-title .name-text {
 .add-recipe-container {
   background-color: white;
   padding-top: 30px;
-  padding-bottom: 50px;
+  padding-bottom: 70px;
 }
 .add-recipe {
-  padding: 2.5rem 4.5rem;
+  padding: 3rem 4.5rem;
   box-shadow: var(--light-shadow);
+}
+
+.add-recipe h2 {
+  margin-bottom: 2rem;
+}
+
+.form-add-multiple {
+  margin: 2.5rem 0;
+}
+.form-add-multiple ul {
+  list-style-type: none;
+  padding: 0;
+}
+.form-add-multiple ul li {
+  border-radius: 5px;
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.plus-icon {
+  margin-right: 0.6rem;
+}
+.delete-btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  border-left: none;
+}
+.ingredients-input-field {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+
+.submit-btnd-group {
+  margin-top: 3rem;
 }
