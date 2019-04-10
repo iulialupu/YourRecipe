@@ -64,7 +64,7 @@ function ShowRecipe({ match, fetchRecipe, recipe }) {
       instructions
     } = recipe;
     return (
-      <div className="show-recipe">
+      <div className="show-recipe paper-bg">
         <RecipeTitle title={title} />
 
         <StarsRating rating={rating} />

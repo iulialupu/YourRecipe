@@ -51,6 +51,8 @@ app.use(function(req, res, next) {
 app.get("/api/recipes", (req, res) => {
   Recipe.find((err, foundArticles) => {
     if (!err) {
+      {
+      }
       res.send(foundArticles);
     } else {
       res.send(err);

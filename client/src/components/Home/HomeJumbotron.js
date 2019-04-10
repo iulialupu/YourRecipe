@@ -10,7 +10,7 @@ function HomeJumbotron() {
       <Container>
         <Row>
           <Col xs lg="5" md="7">
-            <div className="heading-card">
+            <div className="heading-card paper-bg">
               <div className="heading-content">
                 <h1 className="heading-h1">
                   Add your recipe to share it with the world or search through

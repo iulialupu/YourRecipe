@@ -1,7 +1,7 @@
 :root {
   --dark: #343a40;
   --shadow: 0 1px 8px 2px #2c241ba2;
-  --light-shadow: 0 1px 8px 2px #2c241b13;
+  --light-shadow: 0 1px 8px 2px #2c241b23;
 }
 body {
   font-family: "Open Sans", sans-serif;
@@ -16,6 +16,11 @@ h4 {
 }
 a:hover {
   text-decoration: none;
+}
+.paper-bg {
+  background-image: url(./img/Grunge-Paper-Texture-1.jpg);
+  background-position: top;
+  background-size: cover;
 }
 
 /* ******************* Navigation ********************* */
@@ -86,9 +91,6 @@ footer {
 }
 
 .heading-card {
-  background-image: url(./img/Grunge-Paper-Texture-1.jpg);
-  background-position: top;
-  background-size: cover;
   padding: 14px;
   box-shadow: var(--shadow);
 }
@@ -124,9 +126,6 @@ footer {
 
 /* ******************* Recipe ********************* */
 .recipe-card {
-  background-image: url(./img/Grunge-Paper-Texture-1.jpg);
-  background-position: top;
-  background-size: cover;
   padding: 30px 44px;
   box-shadow: var(--light-shadow), 0 2px 3px 1px #2c241b3a;
   margin-bottom: 30px;
@@ -179,9 +178,6 @@ a:hover .recipe-title .name-text {
 
 /* ******************* Horizontal Deco Line ********************* */
 .horizontal-line {
-  background-image: url(./img/hr-line.svg);
-  background-position: center;
-  background-size: cover;
   width: 100%;
   height: 15px;
   margin: 10px auto 10px;
@@ -209,9 +205,6 @@ a:hover .recipe-title .name-text {
   padding-bottom: 5rem;
 }
 .show-recipe {
-  background-image: url(./img/Grunge-Paper-Texture-1.jpg);
-  background-position: top;
-  background-size: cover;
   padding: 2.5rem 4.5rem;
   box-shadow: 2px 1px 10px 4px #2c241ba2, 1px 0 3px 1px #2c241bdc;
 }
@@ -245,4 +238,15 @@ a:hover .recipe-title .name-text {
 .step-text {
   margin-left: 20px;
   display: inline-block;
+}
+
+/* ******************* Add Recipe ********************* */
+.add-recipe-container {
+  background-color: white;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+.add-recipe {
+  padding: 2.5rem 4.5rem;
+  box-shadow: var(--light-shadow);
 }

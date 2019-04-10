@@ -53,7 +53,7 @@ function Recipe({ recipe }) {
   } = recipe;
 
   return (
-    <div className="recipe-card">
+    <div className="recipe-card paper-bg">
       <div className="recipe-content">
         <Link to={`/recipe/${_id}`}>
           <RecipeTitle title={title} />
