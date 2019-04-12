@@ -30,12 +30,13 @@ export const createRecipe = formValues => dispatch => {
   console.log("FORM VALUES FROM ACTION", formValues);
   axios
     .post("/api/recipes", {
-      ...formValues
+      ...formValues,
+      create_date: Date.now()
     })
     .then(response => {
       console.log(response);
       dispatch({ type: CREATE_RECIPE, payload: response.data });
-      history.push(`/api/recipes/${response.data._id}`);
+      history.push(`/recipe/${response.data._id}`);
     })
     .catch(function(error) {
       if (error.response) {
@@ -51,10 +52,13 @@ export const createRecipe = formValues => dispatch => {
 
 // UPDATE | PATCH
 export const updateRecipe = (id, formValues) => async dispatch => {
-  const response = await axios.patch(`recipes/${id}`, formValues);
+  const response = await axios.patch(`/api/recipes/${id}`, {
+    ...formValues,
+    update_date: Date.now()
+  });
 
   dispatch({ type: UPDATE_RECIPE, payload: response.data });
-  history.push(`/api/recipes/${id}`);
+  history.push(`/recipe/${id}`);
 };
 
 // DELETE

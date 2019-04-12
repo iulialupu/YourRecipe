@@ -128,7 +128,7 @@ footer {
 .recipe-card {
   padding: 30px 44px;
   box-shadow: var(--light-shadow), 0 2px 3px 1px #2c241b3a;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 /* ******************* Recipe Title ********************* */
@@ -244,21 +244,22 @@ a:hover .recipe-title .name-text {
   display: inline-block;
 }
 
-/* ******************* Add Recipe ********************* */
-.add-recipe-container {
+/* ******************* Recipe Form Container ********************* */
+.recipe-container {
   background-color: white;
   padding-top: 30px;
   padding-bottom: 70px;
 }
-.add-recipe {
+
+.form-recipe {
   padding: 3rem 4.5rem;
   box-shadow: var(--light-shadow);
 }
-
-.add-recipe h2 {
+.form-recipe h2 {
   margin-bottom: 2rem;
 }
 
+/* ******************* Recipe Form ********************* */
 .form-add-multiple {
   margin: 2.5rem 0;
 }

@@ -1,14 +1,42 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
+import { connect } from "react-redux";
+import { pick } from "lodash";
 
-function EditRecipe() {
+import RecipeForm from "../RecipeForm";
+import { updateRecipe, fetchRecipe } from "../../actions/recipeActions";
+import RecipeFormContainer from "../RecipeFormContainer";
+
+function EditRecipe({ updateRecipe, fetchRecipe, match, recipe }) {
+  const { id } = match.params;
+
+  React.useEffect(() => {
+    fetchRecipe(id);
+  }, []);
+
+  const onSubmit = formValues => {
+    updateRecipe(id, formValues);
+  };
+
+  console.log("RECIPE", recipe);
+
   return (
-    <main>
-      <Container>
-        <div className="edit-recipe paper-bg">form</div>
-      </Container>
-    </main>
+    <RecipeFormContainer>
+      <h2>Edit the recipe:</h2>
+      {recipe && (
+        <RecipeForm
+          initialValues={pick(recipe, "title", "ingredients", "instructions")}
+          onSubmit={onSubmit}
+        />
+      )}
+    </RecipeFormContainer>
   );
 }
 
-export default EditRecipe;
+const mapStateToProps = (state, ownProps) => ({
+  recipe: state.recipes[ownProps.match.params.id]
+});
+
+export default connect(
+  mapStateToProps,
+  { updateRecipe, fetchRecipe }
+)(EditRecipe);

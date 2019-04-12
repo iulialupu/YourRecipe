@@ -20,8 +20,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/recipe/create" component={AddRecipe} />
-          <Route path="/recipe/:id" exact component={ShowRecipe} />
           <Route path="/recipe/edit/:id" exact component={EditRecipe} />
+          <Route path="/recipe/:id" exact component={ShowRecipe} />
           <Route path="/user/:id" component={User} />
           <Route path="/" component={NotFound} />
         </Switch>

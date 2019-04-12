@@ -6,12 +6,10 @@ const RecipeSchema = new mongoose.Schema({
     required: true
   },
   create_date: {
-    type: Date,
-    default: Date.now
+    type: Date
   },
   update_date: {
-    type: Date,
-    default: Date.now
+    type: Date
   },
   rating: [Number],
   image: {

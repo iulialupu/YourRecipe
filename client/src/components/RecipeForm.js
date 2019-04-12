@@ -3,9 +3,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Field, FieldArray, reduxForm } from "redux-form";
 
-import validate from "./validate";
+import validate from "./AddRecipe/validate";
 
-class CreateRecipeForm extends React.Component {
+class RecipeForm extends React.Component {
   renderError = ({ touched, error, submitFailed, dirty }) => {
     if ((touched && error) || (dirty && error) || (submitFailed && error)) {
       return <div className="error-message">{error}</div>;
@@ -143,40 +143,37 @@ class CreateRecipeForm extends React.Component {
   render() {
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
-      <div className="add-recipe">
-        <h2>Add a new recipe:</h2>
-        <form onSubmit={handleSubmit(this.onSubmit)}>
-          <Field
-            name="title"
-            type="text"
-            component={this.renderField}
-            label="Recipe Title"
-          />
+      <form onSubmit={handleSubmit(this.onSubmit)}>
+        <Field
+          name="title"
+          type="text"
+          component={this.renderField}
+          label="Recipe Title"
+        />
 
-          <FieldArray name="ingredients" component={this.renderIngredients} />
+        <FieldArray name="ingredients" component={this.renderIngredients} />
 
-          <FieldArray name="instructions" component={this.renderInstructions} />
-          <hr />
-          <div className="submit-btnd-group">
-            <Button
-              style={{ marginRight: "1rem" }}
-              variant="dark"
-              type="submit"
-              disabled={submitting}
-            >
-              Submit
-            </Button>
-            <Button
-              variant="outline-dark"
-              type="button"
-              disabled={pristine || submitting}
-              onClick={reset}
-            >
-              Clear Values
-            </Button>
-          </div>
-        </form>
-      </div>
+        <FieldArray name="instructions" component={this.renderInstructions} />
+        <hr />
+        <div className="submit-btnd-group">
+          <Button
+            style={{ marginRight: "1rem" }}
+            variant="dark"
+            type="submit"
+            disabled={submitting}
+          >
+            Submit
+          </Button>
+          <Button
+            variant="outline-dark"
+            type="button"
+            disabled={pristine || submitting}
+            onClick={reset}
+          >
+            Clear Values
+          </Button>
+        </div>
+      </form>
     );
   }
 }
@@ -184,4 +181,4 @@ class CreateRecipeForm extends React.Component {
 export default reduxForm({
   form: "createRecipeForm",
   validate
-})(CreateRecipeForm);
+})(RecipeForm);
