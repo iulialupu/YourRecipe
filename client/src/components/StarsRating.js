@@ -2,7 +2,10 @@ import React from "react";
 import StarRatingComponent from "react-star-rating-component";
 
 function StarsRating({ rating }) {
-  const [stars, setStars] = React.useState(rating);
+  const ratingValue = rating.length
+    ? rating.reduce((s, current) => s + current) / rating.length
+    : 0;
+  const [stars, setStars] = React.useState(ratingValue);
 
   return (
     <div className="star-rating">
@@ -15,7 +18,7 @@ function StarsRating({ rating }) {
           setStars(nextValue);
         }}
         onStarHoverOut={(nextValue, prevValue, name) => {
-          setStars(rating);
+          setStars(ratingValue);
         }}
         starColor={"#ffb400"}
         emptyStarColor={`#333`}

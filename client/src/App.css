@@ -269,7 +269,7 @@ a:hover .recipe-title .name-text {
 }
 
 .plus-icon {
-  margin-right: 0.6rem;
+  margin-right: 0.4rem;
 }
 .delete-btn {
   border-top-left-radius: 0;
@@ -286,4 +286,17 @@ a:hover .recipe-title .name-text {
 
 .submit-btnd-group {
   margin-top: 3rem;
+}
+
+.error-message {
+  font-size: 0.7rem;
+  color: red;
+  margin-top: 0.1rem;
+}
+
+.error-message:before {
+  content: "*";
+  margin-right: 0.3rem;
+  font-size: 0.7rem;
+  color: red;
 }

@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // //support parsing of application/x-www-form-urlencoded post data
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require("./config/keys").mongoURI;
 
@@ -62,7 +62,7 @@ app.get("/api/recipes", (req, res) => {
 });
 
 app.post("/api/recipes", (req, res) => {
-  console.log(req.body);
+  console.log("new recipe", req.body);
   const recipe = new Recipe({
     title: req.body.title,
     ingredients: req.body.ingredients,
@@ -70,7 +70,7 @@ app.post("/api/recipes", (req, res) => {
   });
   recipe.save(function(err) {
     if (!err) {
-      res.redirect("/api/recipes");
+      res.status(200).send(recipe);
     } else {
       console.log(err);
     }
