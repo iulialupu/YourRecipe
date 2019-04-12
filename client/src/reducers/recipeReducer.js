@@ -3,14 +3,14 @@ import _ from "lodash";
 import {
   CREATE_RECIPE,
   FETCH_RECIPE,
-  EDIT_RECIPE,
+  UPDATE_RECIPE,
   DELETE_RECIPE,
   FETCH_RECIPES
 } from "../actions/types";
 
 export default (state = {}, action) => {
   switch (action.type) {
-    case EDIT_RECIPE:
+    case UPDATE_RECIPE:
       return { ...state, [action.payload._id]: action.payload };
     case FETCH_RECIPE:
       return { ...state, [action.payload._id]: action.payload };

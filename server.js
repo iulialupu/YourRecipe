@@ -78,7 +78,7 @@ app.post("/api/recipes", (req, res) => {
 });
 
 app
-  .route("/api/recipe/:id")
+  .route("/api/recipes/:id")
 
   .get((req, res) => {
     Recipe.findById(req.params.id, (err, foundRecipe) => {
@@ -93,7 +93,13 @@ app
   .patch((req, res) => {
     Recipe.update({ _id: req.params.id }, { $set: req.body }, err => {
       if (!err) {
-        res.send("Successfuly updated the recipe");
+        Recipe.findById(req.params.id, (err, foundRecipe) => {
+          if (foundRecipe) {
+            res.send(foundRecipe);
+          } else {
+            res.send("No recipe with the specified id was found");
+          }
+        });
       } else {
         res.send(err);
       }
@@ -103,7 +109,7 @@ app
   .delete((req, res) => {
     Recipe.findByIdAndRemove(req.params.id, err => {
       if (!err) {
-        res.send("Successfuly removed the recipe");
+        res.send(req.params.id);
       } else {
         res.send(err);
       }
