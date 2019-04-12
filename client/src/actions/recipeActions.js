@@ -35,6 +35,7 @@ export const createRecipe = formValues => dispatch => {
     .then(response => {
       console.log(response);
       dispatch({ type: CREATE_RECIPE, payload: response.data });
+      history.push(`/api/recipes/${response.data._id}`);
     })
     .catch(function(error) {
       if (error.response) {
@@ -45,8 +46,7 @@ export const createRecipe = formValues => dispatch => {
         console.log("Error", error.message);
       }
       console.log(error.config);
-    })
-    .then(history.push(`/api/recipes/${id}`));
+    });
 };
 
 // UPDATE | PATCH
