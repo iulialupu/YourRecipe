@@ -7,7 +7,6 @@ import RecipeFormContainer from "../RecipeFormContainer";
 
 function AddRecipe({ createRecipe }) {
   const onSubmit = formValues => {
-    console.log("FORM VALUES FROM ADD", formValues);
     createRecipe(formValues);
   };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 
 import Home from "./components/Home";
 import AddRecipe from "./components/AddRecipe";
@@ -9,12 +9,13 @@ import User from "./components/User";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
+import history from "./history";
 
 import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <>
         <Navigation />
         <Switch>
@@ -27,7 +28,7 @@ function App() {
         </Switch>
         <Footer />
       </>
-    </BrowserRouter>
+    </Router>
   );
 }
 

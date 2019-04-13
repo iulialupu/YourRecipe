@@ -6,8 +6,7 @@ import AboutRecipeInfo from "../AboutRecipeInfo";
 import Ingredients from "../Ingredients";
 import RecipeTitle from "../RecipeTitle";
 import StarsRating from "../StarsRating";
-import Button from "react-bootstrap/Button";
-import DeleteRecipeModal from "../DeleteRecipeModal";
+import AdminBtnDeleteModal from "../AdminBtnsDeleteModal";
 
 function Recipe({ recipe }) {
   const {
@@ -19,10 +18,6 @@ function Recipe({ recipe }) {
     createDate,
     updateDate
   } = recipe;
-
-  const [modalIsOpen, setModalState] = React.useState(false);
-
-  const modalClose = () => setModalState(false);
 
   return (
     <div className="recipe-card paper-bg">
@@ -39,29 +34,8 @@ function Recipe({ recipe }) {
         <HrDecoLine />
         <Ingredients ingredients={ingredients} />
         <HrDecoLine />
-        <div className="admin-btns d-flex justify-content-center">
-          <Link
-            to={`recipe/edit/${_id}`}
-            className="btn btn-secondary mr-2 px-4"
-          >
-            Edit
-          </Link>
-          <Button
-            variant="dark"
-            className="px-3"
-            onClick={() => setModalState(true)}
-          >
-            Delete
-          </Button>
-        </div>
+        <AdminBtnDeleteModal id={_id} title={title} />
       </div>
-
-      <DeleteRecipeModal
-        id={_id}
-        title={title}
-        show={modalIsOpen}
-        onHide={modalClose}
-      />
     </div>
   );
 }

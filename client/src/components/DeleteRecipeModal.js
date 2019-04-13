@@ -27,7 +27,7 @@ function DeleteRecipeModal(props) {
       </Modal.Body>
       <Modal.Footer style={{ borderTop: "none", padding: "1rem 2rem" }}>
         <Button variant="danger" onClick={onDeleteClick}>
-          Remove
+          Delete
         </Button>
         <Button variant="secondary" onClick={props.onHide}>
           Cancel
