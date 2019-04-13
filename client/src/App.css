@@ -151,6 +151,7 @@ footer {
   padding: 0 30px;
   transition: color 0.1s ease;
   color: var(--dark);
+  max-width: 50%;
 }
 a:hover .recipe-title .name-text {
   color: rgb(92, 92, 92);
