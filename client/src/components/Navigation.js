@@ -4,8 +4,12 @@ import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 
 import logo from "../img/logo-dark.svg";
+import AuthModal from "./AuthModal";
 
 function Header() {
+  const [modalIsOpen, setModalState] = React.useState(false);
+  const modalClose = () => setModalState(false);
+
   return (
     <header>
       <Navbar bg="light" expand="lg">
@@ -21,10 +25,13 @@ function Header() {
             <Nav.Link href="/user/" className="nav-link">
               <i className="fas fa-user" /> My Account
             </Nav.Link>
-            <Button variant="dark">Log In</Button>
+            <Button variant="dark" onClick={() => setModalState(true)}>
+              Log In
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      <AuthModal show={modalIsOpen} onHide={modalClose} />
     </header>
   );
 }

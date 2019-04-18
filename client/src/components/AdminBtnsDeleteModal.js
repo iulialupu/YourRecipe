@@ -6,7 +6,6 @@ import DeleteRecipeModal from "./DeleteRecipeModal";
 
 function AdminBtnDeleteModal({ id, title }) {
   const [modalIsOpen, setModalState] = React.useState(false);
-
   const modalClose = () => setModalState(false);
 
   return (
