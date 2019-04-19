@@ -1,6 +1,5 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
@@ -12,7 +11,6 @@ class LoginForm extends React.Component {
       {touched && error && (
         <Form.Text className="error-message">{error}</Form.Text>
       )}
-      {console.log(error, touched)}
     </Form.Group>
   );
 
@@ -49,7 +47,6 @@ class LoginForm extends React.Component {
             Clear Values
           </Button>
         </div>
-        {console.log(error)}
       </Form>
     );
   }
