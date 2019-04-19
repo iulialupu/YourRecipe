@@ -30,7 +30,6 @@ class RecipeForm extends React.Component {
         type={type}
         placeholder={label}
       />
-      {console.log(label, input, meta)}
     </>
   );
 
@@ -42,7 +41,6 @@ class RecipeForm extends React.Component {
         type={type}
         placeholder={label}
       />
-      {console.log(label, input, meta)}
     </>
   );
 
@@ -136,7 +134,6 @@ class RecipeForm extends React.Component {
         );
       }
     }
-    console.log("Without UNDEFINED", newFormValues);
     this.props.onSubmit(formValues);
   };
 

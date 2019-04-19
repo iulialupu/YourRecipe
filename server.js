@@ -2,8 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-const Recipe = require("./models/Recipe");
-
 const app = express();
 
 // // support parsing of application/json type post data
@@ -41,80 +39,16 @@ app.use(function(req, res, next) {
 
   // Set to true if you need the website to include cookies in the requests sent
   // to the API (e.g. in case you use sessions)
-  res.setHeader("Access-Control-Allow-Credentials", true);
+  // res.setHeader("Access-Control-Allow-Credentials", true);
 
   // Pass to next layer of middleware
   next();
 });
 
 // /////////////////////////////////////////////  ROUTES  /////////////////////////////////////////
-app.get("/api/recipes", (req, res) => {
-  Recipe.find((err, foundArticles) => {
-    if (!err) {
-      {
-      }
-      res.send(foundArticles);
-    } else {
-      res.send(err);
-    }
-    console.log(foundArticles);
-  });
-});
 
-app.post("/api/recipes", (req, res) => {
-  console.log("new recipe", req.body);
-  const recipe = new Recipe({
-    title: req.body.title,
-    ingredients: req.body.ingredients,
-    instructions: req.body.instructions
-  });
-  recipe.save(function(err) {
-    if (!err) {
-      res.status(200).send(recipe);
-    } else {
-      console.log(err);
-    }
-  });
-});
-
-app
-  .route("/api/recipes/:id")
-
-  .get((req, res) => {
-    Recipe.findById(req.params.id, (err, foundRecipe) => {
-      if (foundRecipe) {
-        res.send(foundRecipe);
-      } else {
-        res.send("No recipe with the specified id was found");
-      }
-    });
-  })
-
-  .patch((req, res) => {
-    Recipe.update({ _id: req.params.id }, { $set: req.body }, err => {
-      if (!err) {
-        Recipe.findById(req.params.id, (err, foundRecipe) => {
-          if (foundRecipe) {
-            res.send(foundRecipe);
-          } else {
-            res.send("No recipe with the specified id was found");
-          }
-        });
-      } else {
-        res.send(err);
-      }
-    });
-  })
-
-  .delete((req, res) => {
-    Recipe.findByIdAndRemove(req.params.id, err => {
-      if (!err) {
-        res.send(req.params.id);
-      } else {
-        res.send(err);
-      }
-    });
-  });
+// Use Routes
+app.use("/api/recipes", require("./routes/api/recipes"));
 
 app.use(function(req, res, next) {
   res.status(404).send("Sorry can't find that!");

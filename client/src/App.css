@@ -22,7 +22,9 @@ a:hover {
   background-position: top;
   background-size: cover;
 }
-
+.modal-backdrop {
+  background-color: var(--dark);
+}
 /* ******************* Navigation ********************* */
 .nav-logo {
   height: 2rem;
