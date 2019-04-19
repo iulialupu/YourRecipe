@@ -306,3 +306,18 @@ a:hover .recipe-title .name-text {
   font-size: 0.7rem;
   color: red;
 }
+
+/* ******************* Auth Modal ********************* */
+.modal-dialog {
+  max-width: 350px;
+}
+
+.modal-title {
+  font-size: 0.9rem;
+  color: gray;
+  margin-top: 0.6rem;
+}
+.auth-modal-footer {
+  font-size: 0.75rem;
+  padding: 0.6rem;
+}

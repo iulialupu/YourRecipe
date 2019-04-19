@@ -5,8 +5,8 @@ import Form from "react-bootstrap/Form";
 
 class LoginForm extends React.Component {
   renderField = ({ input, label, type, meta: { touched, error } }) => (
-    <Form.Group>
-      <Form.Label>{label}</Form.Label>
+    <Form.Group className="mb-3">
+      <Form.Label className="mb-1">{label}</Form.Label>
       <Form.Control {...input} placeholder={label} type={type} />
       {touched && error && (
         <Form.Text className="error-message">{error}</Form.Text>
@@ -19,7 +19,7 @@ class LoginForm extends React.Component {
   };
 
   render() {
-    const { error, handleSubmit, pristine, reset, submitting } = this.props;
+    const { error, handleSubmit, submitting } = this.props;
     return (
       <Form onSubmit={handleSubmit(this.onSubmit)}>
         <Field
@@ -36,15 +36,14 @@ class LoginForm extends React.Component {
         />
         {error && <strong>{error}</strong>}
         <div>
-          <Button type="submit" disabled={submitting}>
-            Log In
-          </Button>
           <Button
-            type="button"
-            disabled={pristine || submitting}
-            onClick={reset}
+            type="submit"
+            disabled={submitting}
+            variant="dark"
+            className="mt-4"
+            block
           >
-            Clear Values
+            Log In
           </Button>
         </div>
       </Form>

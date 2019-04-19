@@ -27,21 +27,21 @@ function AuthModal({ show, onHide }) {
       <Modal.Header closeButton>
         <Modal.Title
           id="contained-modal-title-vcenter"
-          className="text-align-center"
+          className="text-align-center modal-title"
         >
           Log in to share your recipe with the world
         </Modal.Title>
       </Modal.Header>
 
-      <Modal.Body>
+      <Modal.Body className="py-4">
         {modalState === "register" ? <RegisterForm /> : <LoginForm />}
       </Modal.Body>
 
-      <Modal.Footer>
+      <Modal.Footer className="justify-content-center auth-modal-footer">
         {modalState === "register"
           ? "Already have an account?"
           : "Don't have an account?"}
-        <Button variant="link" onClick={changeModal}>
+        <Button variant="link" size="sm" onClick={changeModal}>
           {modalState === "register" ? "Log in" : "Register now"}
         </Button>
       </Modal.Footer>

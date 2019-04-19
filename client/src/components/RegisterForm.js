@@ -5,8 +5,8 @@ import Form from "react-bootstrap/Form";
 
 class RegisterForm extends React.Component {
   renderField = ({ input, label, type, meta: { touched, error } }) => (
-    <Form.Group>
-      <Form.Label>{label}</Form.Label>
+    <Form.Group className="mb-6">
+      <Form.Label className="mb-0">{label}</Form.Label>
       <Form.Control {...input} placeholder={label} type={type} />
       {touched && error && (
         <Form.Text className="error-message">{error}</Form.Text>
@@ -49,15 +49,14 @@ class RegisterForm extends React.Component {
         />
         {error && <strong>{error}</strong>}
         <div>
-          <Button type="submit" disabled={submitting}>
-            Log In
-          </Button>
           <Button
-            type="button"
-            disabled={pristine || submitting}
-            onClick={reset}
+            type="submit"
+            variant="dark"
+            className="mt-4"
+            block
+            disabled={submitting}
           >
-            Clear Values
+            Register
           </Button>
         </div>
         {console.log(error)}
