@@ -1,10 +1,10 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import { Field, FieldArray, reduxForm } from "redux-form";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
-function RegisterForm({ show, onHide }) {
+function AuthModal({ show, onHide }) {
   const [modalState, setModalState] = React.useState("login");
 
   const changeModal = () => {
@@ -34,7 +34,7 @@ function RegisterForm({ show, onHide }) {
       </Modal.Header>
 
       <Modal.Body>
-        <Form />
+        {modalState === "register" ? <RegisterForm /> : <LoginForm />}
       </Modal.Body>
 
       <Modal.Footer>
@@ -49,4 +49,4 @@ function RegisterForm({ show, onHide }) {
   );
 }
 
-export default RegisterForm;
+export default AuthModal;

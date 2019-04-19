@@ -22,7 +22,6 @@ const validate = values => {
     };
   }
 
-  console.log("Validate errors", errors, values);
   return errors;
 };
 

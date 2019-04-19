@@ -13,8 +13,6 @@ function RecipesList({ fetchRecipes, recipes }) {
     console.log("fetching");
   }, []);
 
-  console.log(recipes);
-
   const renderRecipes = () => {
     return recipes.map(recipe => <Recipe recipe={recipe} key={recipe._id} />);
   };
