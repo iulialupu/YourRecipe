@@ -1,8 +1,11 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+import { connect } from "react-redux";
+import { register, login } from "../actions/authActions";
 
 function AuthModal({ show, onHide }) {
   const [modalState, setModalState] = React.useState("login");
@@ -48,5 +51,11 @@ function AuthModal({ show, onHide }) {
     </Modal>
   );
 }
+const mapStateToProps = state => ({
+  error: state.error
+});
 
-export default AuthModal;
+export default connect(
+  mapStateToProps,
+  { register, login }
+)(AuthModal);

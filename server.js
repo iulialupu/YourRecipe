@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const config = require("config");
 
 const app = express();
 
@@ -10,7 +11,7 @@ app.use(bodyParser.json());
 // //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const db = require("./config/keys").mongoURI;
+const db = config.get("mongoURI");
 
 // Connect to Mongo
 mongoose
@@ -49,6 +50,7 @@ app.use(function(req, res, next) {
 
 // Use Routes
 app.use("/api/recipes", require("./routes/api/recipes"));
+app.use("/api/users", require("./routes/api/users"));
 
 app.use(function(req, res, next) {
   res.status(404).send("Sorry can't find that!");

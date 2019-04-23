@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const config = require("../config");
+const config = require("config");
 
 // User Model
 const User = require("../../models/User");
@@ -14,7 +14,7 @@ router.post("/register", (req, res) => {
   //check if email already exists
   User.findOne({ email: req.body.email }, user => {
     if (user) {
-      return res.status(400).json({ msg: "Email already exists" });
+      return res.status(400).json({ register: "This email already exists" });
     }
   });
 
@@ -44,13 +44,7 @@ router.post("/register", (req, res) => {
             (err, token) => {
               if (err) throw err;
               // Send the token and user obj
-              res.json({
-                token,
-                user: {
-                  id: user.id,
-                  name: user.name
-                }
-              });
+              res.json({ token });
             }
           );
         })
@@ -70,7 +64,7 @@ router.post("/login", (req, res) => {
   User.findOne({ email }).then(user => {
     // Check if user exists
     if (!user) {
-      return res.status(404).json({ msg: "Email not found" });
+      return res.status(404).json({ login: "Email not found" });
     }
     // Check password
     bcrypt.compare(password, user.password).then(isMatch => {
@@ -91,17 +85,11 @@ router.post("/login", (req, res) => {
           (err, token) => {
             if (err) throw err;
             // Send the token
-            res.json({
-              token,
-              user: {
-                id: user.id,
-                name: user.name
-              }
-            });
+            res.json({ token });
           }
         );
       } else {
-        return res.status(400).json({ msg: "Password incorrect" });
+        return res.status(400).json({ login: "Incorrect password" });
       }
     });
   });

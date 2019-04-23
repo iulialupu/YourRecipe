@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-// Item Model
+// Recipe Model
 const Recipe = require("../../models/Recipe");
 
 // api/recipes

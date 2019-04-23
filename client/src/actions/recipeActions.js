@@ -8,6 +8,7 @@ import {
   DELETE_RECIPE,
   FETCH_RECIPES
 } from "./types";
+import { setCurrentUser } from "./authActions";
 
 // GET ALL
 export const fetchRecipes = () => async dispatch => {

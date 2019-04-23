@@ -3,6 +3,9 @@ import { Field, reduxForm } from "redux-form";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+import { connect } from "react-redux";
+import { register, login } from "../actions/authActions";
+
 class RegisterForm extends React.Component {
   renderField = ({ input, label, type, meta: { touched, error } }) => (
     <Form.Group className="mb-3">
@@ -17,6 +20,7 @@ class RegisterForm extends React.Component {
 
   onSubmit = formValues => {
     console.log("submit", formValues);
+    this.props.register(formValues);
   };
 
   render() {
@@ -90,7 +94,16 @@ const validate = values => {
   return errors;
 };
 
-export default reduxForm({
+const mapStateToProps = state => ({
+  error: state.error
+});
+
+const RegisterReduxForm = reduxForm({
   form: "registerForm",
   validate
 })(RegisterForm);
+
+export default connect(
+  mapStateToProps,
+  { register, login }
+)(RegisterReduxForm);
