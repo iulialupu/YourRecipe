@@ -5,6 +5,14 @@ const RecipeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  authorId: {
+    type: String,
+    required: true
+  },
+  authorName: {
+    type: String,
+    required: true
+  },
   create_date: {
     type: Date
   },
@@ -23,8 +31,7 @@ const RecipeSchema = new mongoose.Schema({
   instructions: {
     type: Array,
     required: true
-  },
-  comments: []
+  }
 });
 
 module.exports = Recipe = mongoose.model("recipe", RecipeSchema);

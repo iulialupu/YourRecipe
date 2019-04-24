@@ -7,15 +7,25 @@ import { connect } from "react-redux";
 import logo from "../img/logo-dark.svg";
 import AuthModal from "./AuthModal";
 import { getUser, logout } from "../actions/authActions";
+import { clearErrors } from "../actions/errorActions";
 
-function Header({ auth, getUser, logout }) {
+function Header({ auth, getUser, logout, clearErrors }) {
   const [modalIsOpen, setModalState] = React.useState(false);
 
   React.useEffect(() => {
     getUser();
   }, []);
 
-  const modalClose = () => setModalState(false);
+  const modalClose = () => {
+    setModalState(false);
+    clearErrors();
+  };
+
+  React.useEffect(() => {
+    if (auth.isAuthenticated) {
+      modalClose();
+    }
+  }, [auth]);
 
   const renderLinks = () => {
     return (
@@ -63,5 +73,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getUser, logout }
+  { getUser, logout, clearErrors }
 )(Header);

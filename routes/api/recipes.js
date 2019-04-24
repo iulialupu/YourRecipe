@@ -11,8 +11,6 @@ const Recipe = require("../../models/Recipe");
 router.get("/", (req, res) => {
   Recipe.find((err, foundArticles) => {
     if (!err) {
-      {
-      }
       res.send(foundArticles);
     } else {
       res.send(err);
@@ -25,11 +23,7 @@ router.get("/", (req, res) => {
 // access: private
 router.post("/", (req, res) => {
   console.log("new recipe", req.body);
-  const recipe = new Recipe({
-    title: req.body.title,
-    ingredients: req.body.ingredients,
-    instructions: req.body.instructions
-  });
+  const recipe = new Recipe({ ...req.body });
   recipe.save(function(err) {
     if (!err) {
       res.status(200).send(recipe);

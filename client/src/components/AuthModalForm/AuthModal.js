@@ -3,9 +3,9 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { connect } from "react-redux";
 
-import LoginForm from "./AuthModalForm/LoginForm";
-import RegisterForm from "./AuthModalForm/RegisterForm";
-import { clearErrors } from "../actions/errorActions";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
+import { clearErrors } from "../../actions/errorActions";
 
 function AuthModal({ show, onHide, clearErrors }) {
   const [modalState, setModalState] = React.useState("login");

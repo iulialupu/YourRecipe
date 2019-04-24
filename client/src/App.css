@@ -323,3 +323,11 @@ a:hover .recipe-title .name-text {
   font-size: 0.75rem;
   padding: 0.6rem;
 }
+/* ******************* Auth Form ********************* */
+.auth-error-message {
+  color: red;
+  background-color: rgba(255, 0, 0, 0.13);
+  display: block;
+  border-radius: 5px;
+  padding: 0.7rem;
+}

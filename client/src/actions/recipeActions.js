@@ -26,16 +26,17 @@ export const fetchRecipe = id => async dispatch => {
   dispatch({ type: FETCH_RECIPE, payload: response.data });
 };
 
-// CREATE | PUT
-export const createRecipe = formValues => dispatch => {
-  console.log("FORM VALUES FROM ACTION", formValues);
+// CREATE | POST
+export const createRecipe = (formValues, { id, name }) => dispatch => {
+  console.log(typeof id);
   axios
     .post("/api/recipes", {
       ...formValues,
+      authorId: id,
+      authorName: name,
       create_date: Date.now()
     })
     .then(response => {
-      console.log(response);
       dispatch({ type: CREATE_RECIPE, payload: response.data });
       history.push(`/recipe/${response.data._id}`);
     })

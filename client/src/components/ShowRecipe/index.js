@@ -13,7 +13,7 @@ import Instructions from "../Instructions";
 import { fetchRecipe } from "../../actions/recipeActions";
 import AdminBtnDeleteModal from "../AdminBtnsDeleteModal";
 
-function ShowRecipe({ match, fetchRecipe, recipe }) {
+function ShowRecipe({ match, fetchRecipe, recipe, auth }) {
   React.useEffect(() => {
     window.scrollTo(0, 0);
     const { id } = match.params;
@@ -26,25 +26,29 @@ function ShowRecipe({ match, fetchRecipe, recipe }) {
       title,
       rating,
       ingredients,
-      author,
+      authorId,
+      authorName,
       createDate,
       updateDate,
       instructions
     } = recipe;
+
     return (
       <div className="show-recipe paper-bg">
         <RecipeTitle title={title} />
 
         <StarsRating rating={rating} />
 
-        <AdminBtnDeleteModal id={_id} title={title} />
+        {auth.user && auth.user.id.localeCompare(authorId) === 0 ? (
+          <AdminBtnDeleteModal id={_id} title={title} />
+        ) : null}
 
         <Row className="justify-content-md-center">
           <Col xs Xl="4" lg="6" md="8">
             {/* <AboutRecipeInfo
                 createDate={createDate}
                 updateDate={updateDate}
-                author={author}
+                author={authorName}
               /> */}
 
             <HrDecoLine />
@@ -67,7 +71,8 @@ function ShowRecipe({ match, fetchRecipe, recipe }) {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    recipe: state.recipes[ownProps.match.params.id]
+    recipe: state.recipes[ownProps.match.params.id],
+    auth: state.auth
   };
 };
 

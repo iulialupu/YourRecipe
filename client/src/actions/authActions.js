@@ -55,7 +55,7 @@ export const register = ({ name, email, password }) => dispatch => {
     .post("/api/users/register", body, config)
     .then(res => {
       const { token } = res.data;
-
+      console.log(token);
       // Add the token to local storage
       localStorage.setItem("token", token);
       // Remove any existing errors
@@ -64,7 +64,7 @@ export const register = ({ name, email, password }) => dispatch => {
       dispatch(setCurrentUser());
     })
     .catch(err => {
-      dispatch(getErrors(err.response.data)); // ?
+      dispatch(getErrors(err.response.data));
       dispatch({
         type: REGISTER_FAIL
       });

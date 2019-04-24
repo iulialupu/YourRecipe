@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import HrDecoLine from "../HrDecoLine";
 import AboutRecipeInfo from "../AboutRecipeInfo";
@@ -8,13 +9,14 @@ import RecipeTitle from "../RecipeTitle";
 import StarsRating from "../StarsRating";
 import AdminBtnDeleteModal from "../AdminBtnsDeleteModal";
 
-function Recipe({ recipe }) {
+function Recipe({ recipe, auth }) {
   const {
     _id,
     title,
     rating,
     ingredients,
-    author,
+    authorId,
+    authorName,
     createDate,
     updateDate
   } = recipe;
@@ -29,15 +31,26 @@ function Recipe({ recipe }) {
         {/* <AboutRecipeInfo
           createDate={createDate}
           updateDate={updateDate}
-          author={author}
+          author={authorName}
         /> */}
         <HrDecoLine />
         <Ingredients ingredients={ingredients} />
-        <HrDecoLine />
-        <AdminBtnDeleteModal id={_id} title={title} />
+
+        {auth.user && auth.user.id.localeCompare(authorId) === 0 ? (
+          <>
+            <HrDecoLine />
+            <AdminBtnDeleteModal id={_id} title={title} />
+          </>
+        ) : null}
       </div>
     </div>
   );
 }
 
-export default Recipe;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    auth: state.auth
+  };
+};
+
+export default connect(mapStateToProps)(Recipe);

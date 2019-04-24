@@ -14,7 +14,10 @@ router.post("/register", (req, res) => {
   //check if email already exists
   User.findOne({ email: req.body.email }, user => {
     if (user) {
-      return res.status(400).json({ register: "This email already exists" });
+      return res.status(400).json({
+        field: "Email",
+        msg: "This email already exists"
+      });
     }
   });
 
@@ -64,7 +67,9 @@ router.post("/login", (req, res) => {
   User.findOne({ email }).then(user => {
     // Check if user exists
     if (!user) {
-      return res.status(404).json({ login: "Email not found" });
+      return res
+        .status(404)
+        .json({ form: "login", field: "Email", msg: "Email not found" });
     }
     // Check password
     bcrypt.compare(password, user.password).then(isMatch => {
@@ -89,7 +94,9 @@ router.post("/login", (req, res) => {
           }
         );
       } else {
-        return res.status(400).json({ login: "Incorrect password" });
+        return res
+          .status(400)
+          .json({ form: "login", field: "Password", msg: "Wrong password" });
       }
     });
   });

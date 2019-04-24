@@ -5,9 +5,12 @@ import RecipeForm from "../RecipeForm";
 import { createRecipe } from "../../actions/recipeActions";
 import RecipeFormContainer from "../RecipeFormContainer";
 
-function AddRecipe({ createRecipe }) {
+function AddRecipe({ createRecipe, user }) {
   const onSubmit = formValues => {
-    createRecipe(formValues);
+    if (user !== undefined) {
+      const { id, name } = user;
+      createRecipe(formValues, { id, name });
+    }
   };
 
   return (
@@ -18,7 +21,13 @@ function AddRecipe({ createRecipe }) {
   );
 }
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+    user: state.auth.user
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { createRecipe }
 )(AddRecipe);
