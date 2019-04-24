@@ -1,21 +1,41 @@
 import React from "react";
 
-function AboutRecipeInfo({ createDate, updateDate, author }) {
+function AboutRecipeInfo({ createDate, updateDate, authorName, style }) {
+  const formatDate = time => {
+    const monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ];
+    const date = new Date(time);
+    const month = monthNames[date.getMonth()];
+    return `${date.getDate()} ${month} ${date.getFullYear()}`;
+  };
+
   return (
-    <div className="create-info">
+    <div className="create-info" style={style}>
       <div>
         <span className="label">Posted:</span>
-        {createDate}
+        {formatDate(createDate)}
       </div>
 
       <div>
         <span className="label">Edited:</span>
-        {updateDate}
+        {formatDate(updateDate)}
       </div>
 
       <div>
         <span className="label">By:</span>
-        {author.userName}
+        {authorName}
       </div>
     </div>
   );

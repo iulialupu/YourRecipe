@@ -17,9 +17,11 @@ function Recipe({ recipe, auth }) {
     ingredients,
     authorId,
     authorName,
-    createDate,
-    updateDate
+    create_date: createDate,
+    update_date: updateDate
   } = recipe;
+
+  console.log(createDate, updateDate);
 
   return (
     <div className="recipe-card paper-bg">
@@ -28,11 +30,11 @@ function Recipe({ recipe, auth }) {
           <RecipeTitle title={title} />
         </Link>
         <StarsRating rating={rating} />
-        {/* <AboutRecipeInfo
+        <AboutRecipeInfo
           createDate={createDate}
           updateDate={updateDate}
-          author={authorName}
-        /> */}
+          authorName={authorName}
+        />
         <HrDecoLine />
         <Ingredients ingredients={ingredients} />
 
@@ -42,6 +44,8 @@ function Recipe({ recipe, auth }) {
             <AdminBtnDeleteModal id={_id} title={title} />
           </>
         ) : null}
+        {/* <HrDecoLine />
+        <AdminBtnDeleteModal id={_id} title={title} /> */}
       </div>
     </div>
   );

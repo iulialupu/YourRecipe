@@ -28,8 +28,8 @@ function ShowRecipe({ match, fetchRecipe, recipe, auth }) {
       ingredients,
       authorId,
       authorName,
-      createDate,
-      updateDate,
+      create_date: createDate,
+      update_date: updateDate,
       instructions
     } = recipe;
 
@@ -44,12 +44,13 @@ function ShowRecipe({ match, fetchRecipe, recipe, auth }) {
         ) : null}
 
         <Row className="justify-content-md-center">
-          <Col xs Xl="4" lg="6" md="8">
-            {/* <AboutRecipeInfo
-                createDate={createDate}
-                updateDate={updateDate}
-                author={authorName}
-              /> */}
+          <Col md="8">
+            <AboutRecipeInfo
+              createDate={createDate}
+              updateDate={updateDate}
+              authorName={authorName}
+              style={{ marginTop: "2rem" }}
+            />
 
             <HrDecoLine />
           </Col>
