@@ -37,7 +37,7 @@ function ShowRecipe({ match, fetchRecipe, recipe, auth }) {
       <div className="show-recipe paper-bg">
         <RecipeTitle title={title} />
 
-        <StarsRating rating={rating} />
+        <StarsRating id={_id} rating={rating} />
 
         {auth.user && auth.user.id.localeCompare(authorId) === 0 ? (
           <AdminBtnDeleteModal id={_id} title={title} />

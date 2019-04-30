@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { connect } from "react-redux";
 
 import logo from "../img/logo-dark.svg";
-import AuthModal from "./AuthModal";
+import AuthModal from "./AuthModalForm/AuthModal";
 import { getUser, logout } from "../actions/authActions";
 import { clearErrors } from "../actions/errorActions";
 

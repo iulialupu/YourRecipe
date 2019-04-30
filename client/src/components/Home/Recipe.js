@@ -21,15 +21,13 @@ function Recipe({ recipe, auth }) {
     update_date: updateDate
   } = recipe;
 
-  console.log(createDate, updateDate);
-
   return (
     <div className="recipe-card paper-bg">
       <div className="recipe-content">
         <Link to={`/recipe/${_id}`}>
           <RecipeTitle title={title} />
         </Link>
-        <StarsRating rating={rating} />
+        <StarsRating rating={rating} id={_id} />
         <AboutRecipeInfo
           createDate={createDate}
           updateDate={updateDate}
@@ -44,8 +42,6 @@ function Recipe({ recipe, auth }) {
             <AdminBtnDeleteModal id={_id} title={title} />
           </>
         ) : null}
-        {/* <HrDecoLine />
-        <AdminBtnDeleteModal id={_id} title={title} /> */}
       </div>
     </div>
   );

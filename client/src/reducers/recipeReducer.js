@@ -5,12 +5,14 @@ import {
   FETCH_RECIPE,
   UPDATE_RECIPE,
   DELETE_RECIPE,
-  FETCH_RECIPES
+  FETCH_RECIPES,
+  RATE_RECIPE
 } from "../actions/types";
 
 export default (state = {}, action) => {
   switch (action.type) {
     case UPDATE_RECIPE:
+    case RATE_RECIPE:
       return { ...state, [action.payload._id]: action.payload };
     case FETCH_RECIPE:
       return { ...state, [action.payload._id]: action.payload };

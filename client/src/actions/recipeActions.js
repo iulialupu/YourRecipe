@@ -1,4 +1,3 @@
-import recipes from "../apis/recipes";
 import axios from "axios";
 import history from "../history";
 import {
@@ -6,9 +5,10 @@ import {
   FETCH_RECIPE,
   UPDATE_RECIPE,
   DELETE_RECIPE,
-  FETCH_RECIPES
+  FETCH_RECIPES,
+  RATE_RECIPE
 } from "./types";
-import { setCurrentUser } from "./authActions";
+import { tokenConfig } from "./authActions";
 
 // GET ALL
 export const fetchRecipes = () => async dispatch => {
@@ -28,14 +28,17 @@ export const fetchRecipe = id => async dispatch => {
 
 // CREATE | POST
 export const createRecipe = (formValues, { id, name }) => dispatch => {
-  console.log(typeof id);
   axios
-    .post("/api/recipes", {
-      ...formValues,
-      authorId: id,
-      authorName: name,
-      create_date: Date.now()
-    })
+    .post(
+      "/api/recipes",
+      {
+        ...formValues,
+        authorId: id,
+        authorName: name,
+        create_date: Date.now()
+      },
+      tokenConfig()
+    )
     .then(response => {
       dispatch({ type: CREATE_RECIPE, payload: response.data });
       history.push(`/recipe/${response.data._id}`);
@@ -54,10 +57,14 @@ export const createRecipe = (formValues, { id, name }) => dispatch => {
 
 // UPDATE | PATCH
 export const updateRecipe = (id, formValues) => async dispatch => {
-  const response = await axios.patch(`/api/recipes/${id}`, {
-    ...formValues,
-    update_date: Date.now()
-  });
+  const response = await axios.patch(
+    `/api/recipes/${id}`,
+    {
+      ...formValues,
+      update_date: Date.now()
+    },
+    tokenConfig()
+  );
 
   dispatch({ type: UPDATE_RECIPE, payload: response.data });
   history.push(`/recipe/${id}`);
@@ -65,8 +72,15 @@ export const updateRecipe = (id, formValues) => async dispatch => {
 
 // DELETE
 export const deleteRecipe = id => async dispatch => {
-  await axios.delete(`/api/recipes/${id}`);
+  await axios.delete(`/api/recipes/${id}`, tokenConfig());
 
   dispatch({ type: DELETE_RECIPE, payload: id });
   history.push("/");
+};
+
+// RATING A RECIPE | PATCH
+export const rateRecipe = (id, rating) => async dispatch => {
+  const response = await axios.patch(`/api/recipes/${id}/rating`, rating);
+
+  dispatch({ type: RATE_RECIPE, payload: response.data });
 };

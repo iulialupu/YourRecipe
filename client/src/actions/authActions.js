@@ -2,25 +2,21 @@ import jwt_decode from "jwt-decode";
 import axios from "axios";
 
 import {
-  LOGIN_USER,
-  REGISTER_USER,
   LOGIN_FAIL,
   REGISTER_FAIL,
   AUTH_SUCCESS,
   AUTH_FAIL,
-  LOGOUT_USER,
-  SET_CURRENT_USER
+  LOGOUT_USER
 } from "../actions/types";
 import { getErrors, clearErrors } from "./errorActions";
 import setTokenHeader from "./utils/setTokenHeader";
-import { log } from "util";
 
 // * set the current user
-const setCurrentUser = () => {
+export const setCurrentUser = () => {
   const token = localStorage.getItem("token");
   if (token) {
     // Set token to Auth header
-    setTokenHeader(token); //
+    // setTokenHeader(token); //
     // Decode token to get user data
     const decoded = jwt_decode(token);
     // Add current user to state
@@ -55,7 +51,6 @@ export const register = ({ name, email, password }) => dispatch => {
     .post("/api/users/register", body, config)
     .then(res => {
       const { token } = res.data;
-      console.log(token);
       // Add the token to local storage
       localStorage.setItem("token", token);
       // Remove any existing errors
@@ -113,19 +108,19 @@ export const logout = () => {
   };
 };
 
-// // * Setup config/headers and token
-// export const tokenConfig = getState => {
-//   // Get token from localstorage
-//   const token = getState().auth.token;
-//   // Headers
-//   const config = {
-//     headers: {
-//       "Content-type": "application/json"
-//     }
-//   };
-//   // If token, add to headers
-//   if (token) {
-//     config.headers["x-auth-token"] = token;
-//   }
-//   return config;
-// };
+// * Setup config/headers and token
+export const tokenConfig = () => {
+  // Get token from localstorage
+  const token = localStorage.getItem("token");
+  // Headers
+  const config = {
+    headers: {
+      "Content-type": "application/json"
+    }
+  };
+  // If token, add to headers
+  if (token) {
+    config.headers["x-auth-token"] = token;
+  }
+  return config;
+};

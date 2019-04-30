@@ -10,7 +10,6 @@ import { fetchRecipes } from "../../actions/recipeActions";
 function RecipesList({ fetchRecipes, recipes }) {
   React.useEffect(() => {
     fetchRecipes();
-    console.log("fetching");
   }, []);
 
   const renderRecipes = () => {
@@ -21,7 +20,7 @@ function RecipesList({ fetchRecipes, recipes }) {
     <section className="recipes-list">
       <Container>
         <Row className="justify-content-md-center">
-          <Col xs Xl="6" lg="8" md="10">
+          <Col xs xl="6" lg="8" md="10">
             {recipes ? renderRecipes() : null}
           </Col>
         </Row>
